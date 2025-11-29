@@ -1,13 +1,13 @@
 /* ------------------ 
 Tech Stack
-  Framework
+  Framework:
     React 19 TypeScript
-  Router
+  Router:
     React Router v7 (declarative mode)
-  Component Library
+  Component Library:
     shadcn
-  Styles
+  Styles:
     Tailwind v4
-  Icon Pack
+  Icon Pack:
     Lucide
 ------------ */
