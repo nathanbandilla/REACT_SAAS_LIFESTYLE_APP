@@ -1,0 +1,7 @@
+User-agent: Googlebot
+Disallow: /nogooglebot/
+
+User-agent: *
+Allow: /
+
+Sitemap: https://saas-lifestyle-app-webflow-landing-page-design-commu-jjg8xd.teleporthq.app/sitemap.xml

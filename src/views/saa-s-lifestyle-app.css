@@ -1,0 +1,2309 @@
+.saa-s-lifestyle-app-container1 {
+  width: 100%;
+  display: flex;
+  overflow: auto;
+  min-height: 100vh;
+  align-items: center;
+  flex-direction: column;
+  position: relative;
+}
+
+/* Scroll Fade Effect for Images */
+.fade-in-image {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.fade-in-image.fade-in-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Login Side Panel Styles */
+.login-side-panel {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 9999;
+  pointer-events: none;
+}
+
+.login-side-panel.open {
+  pointer-events: auto;
+}
+
+.login-panel-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0);
+  transition: background-color 0.3s ease;
+}
+
+.login-side-panel.open .login-panel-overlay {
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.login-panel-content {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 450px;
+  max-width: 90%;
+  height: 100%;
+  background-color: #1a1a1a;
+  box-shadow: -4px 0 20px rgba(0, 0, 0, 0.3);
+  transform: translateX(100%);
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  overflow-y: auto;
+  padding: 40px 30px;
+  display: flex;
+  flex-direction: column;
+}
+
+.login-side-panel.open .login-panel-content {
+  transform: translateX(0);
+}
+
+.login-panel-close {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: none;
+  border: none;
+  color: #f2f4f8;
+  font-size: 36px;
+  cursor: pointer;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.2s ease, color 0.2s ease;
+  padding: 0;
+  line-height: 1;
+}
+
+.login-panel-close:hover {
+  transform: rotate(90deg);
+  color: #fff;
+}
+
+.login-panel-header {
+  margin-bottom: 40px;
+  margin-top: 20px;
+}
+
+.login-panel-header h2 {
+  color: #f2f4f8;
+  font-size: 32px;
+  font-family: Montserrat, sans-serif;
+  font-weight: 600;
+  margin: 0 0 10px 0;
+}
+
+.login-panel-header p {
+  color: rgba(242, 244, 248, 0.7);
+  font-size: 16px;
+  font-family: Montserrat, sans-serif;
+  margin: 0;
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.form-group label {
+  color: #f2f4f8;
+  font-size: 14px;
+  font-family: Montserrat, sans-serif;
+  font-weight: 500;
+}
+
+.form-group input {
+  background-color: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  padding: 14px 16px;
+  color: #f2f4f8;
+  font-size: 16px;
+  font-family: Montserrat, sans-serif;
+  transition: border-color 0.3s ease, background-color 0.3s ease;
+}
+
+.form-group input:focus {
+  outline: none;
+  border-color: rgba(255, 255, 255, 0.3);
+  background-color: rgba(255, 255, 255, 0.08);
+}
+
+.form-group input::placeholder {
+  color: rgba(242, 244, 248, 0.4);
+}
+
+.login-submit-btn {
+  background-color: #f2f4f8;
+  color: #1a1a1a;
+  border: none;
+  border-radius: 8px;
+  padding: 14px 24px;
+  font-size: 16px;
+  font-family: Montserrat, sans-serif;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  margin-top: 8px;
+}
+
+.login-submit-btn:hover {
+  background-color: #fff;
+  transform: translateY(-2px);
+}
+
+.login-submit-btn:active {
+  transform: translateY(0);
+}
+
+.login-footer {
+  text-align: center;
+  margin-top: 16px;
+}
+
+.forgot-password {
+  color: rgba(242, 244, 248, 0.7);
+  font-size: 14px;
+  font-family: Montserrat, sans-serif;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.forgot-password:hover {
+  color: #f2f4f8;
+  text-decoration: underline;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .login-panel-content {
+    width: 100%;
+    max-width: 100%;
+    padding: 30px 20px;
+  }
+  
+  .login-panel-header h2 {
+    font-size: 28px;
+  }
+}
+ 
+.saa-s-lifestyle-app-saa-s-lifestyle-app {
+  width: 100%;
+  height: auto;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  background-color: rgba(26, 26, 26, 1);
+}
+ 
+.saa-s-lifestyle-app-navbar-logo-left {
+  display: flex;
+  padding: 20px 24px;
+  overflow: hidden;
+  align-self: stretch;
+  align-items: flex-start;
+  flex-shrink: 0;
+  border-color: rgba(255, 255, 255, 0.20000000298023224);
+  border-style: solid;
+  border-width: 0 0 1px;
+  justify-content: center;
+  background-color: rgba(26, 26, 26, 1);
+}
+ 
+.saa-s-lifestyle-app-navbar-container {
+  width: 1200px;
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+  justify-content: center;
+}
+ 
+.saa-s-lifestyle-app-navbar-content {
+  gap: 625px;
+  width: 1200px;
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+  justify-content: space-between;
+}
+ 
+.saa-s-lifestyle-app-logo1 {
+  gap: 7px;
+  display: flex;
+  align-items: center;
+}
+ 
+.saa-s-lifestyle-app-union1 {
+  width: 36px;
+  height: 33px;
+}
+ 
+.saa-s-lifestyle-app-text10 {
+  color: rgba(242, 244, 248, 1);
+  height: auto;
+  font-size: 32.192604064941406px;
+  font-style: normal;
+  text-align: left;
+  font-family: Montserrat;
+  font-weight: 500;
+  line-height: 100%;
+  font-stretch: normal;
+  text-decoration: none;
+}
+ 
+.saa-s-lifestyle-app-navbar-menu {
+  gap: 32px;
+  display: flex;
+  overflow: hidden;
+  align-items: center;
+}
+ 
+.saa-s-lifestyle-app-navbar-link1 {
+  display: flex;
+  padding: 24px 12px;
+  align-items: flex-start;
+}
+ 
+.saa-s-lifestyle-app-text11 {
+  color: rgba(242, 244, 248, 1);
+  height: auto;
+  font-size: 20px;
+  font-style: normal;
+  text-align: left;
+  font-family: Montserrat;
+  font-weight: 400;
+  line-height: 150%;
+  font-stretch: normal;
+  text-decoration: none;
+}
+ 
+.saa-s-lifestyle-app-navbar-link2 {
+  display: flex;
+  padding: 24px 12px;
+  align-items: flex-start;
+}
+ 
+.saa-s-lifestyle-app-text12 {
+  color: rgba(242, 244, 248, 1);
+  height: auto;
+  font-size: 20px;
+  font-style: normal;
+  text-align: left;
+  font-family: Montserrat;
+  font-weight: 400;
+  line-height: 150%;
+  font-stretch: normal;
+  text-decoration: none;
+}
+ 
+.saa-s-lifestyle-app-navbar-link3 {
+  display: flex;
+  padding: 24px 12px;
+  align-items: flex-start;
+}
+ 
+.saa-s-lifestyle-app-text13 {
+  color: rgb(242, 244, 248);
+  height: auto;
+  font-size: 20px;
+  font-style: normal;
+  text-align: left;
+  font-family: "Montserrat";
+  font-weight: 400;
+  line-height: 150%;
+  font-stretch: normal;
+  text-decoration: none;
+}
+ 
+.saa-s-lifestyle-app-navbar-link4 {
+  display: flex;
+  padding: 24px 12px;
+  align-items: flex-start;
+}
+ 
+.saa-s-lifestyle-app-text14 {
+  color: rgb(242, 244, 248);
+  height: auto;
+  font-size: 20px;
+  font-style: normal;
+  text-align: left;
+  font-family: "Montserrat";
+  font-weight: 400;
+  line-height: 150%;
+  font-stretch: normal;
+  text-decoration: none;
+}
+ 
+.saa-s-lifestyle-app-button1 {
+  gap: 12.381771087646484px;
+  display: flex;
+  padding: 19.810834884643555px 29.716251373291016px;
+  align-items: center;
+  border-color: rgba(242, 244, 248, 1);
+  border-style: solid;
+  border-width: 1.2381771802902222px;
+  border-radius: 39.62166976928711px;
+  justify-content: center;
+}
+ 
+.saa-s-lifestyle-app-text15 {
+  color: rgba(242, 244, 248, 1);
+  height: auto;
+  font-size: 19.810834884643555px;
+  font-style: normal;
+  text-align: left;
+  font-family: Montserrat;
+  font-weight: 400;
+  line-height: 150%;
+  font-stretch: normal;
+  text-decoration: none;
+}
+ 
+.saa-s-lifestyle-app-hero-heading-left {
+  gap: 80px;
+  display: flex;
+  padding: 80px 20px;
+  overflow: hidden;
+  align-self: stretch;
+  align-items: flex-start;
+  flex-shrink: 0;
+  justify-content: center;
+  background-color: rgba(26, 26, 26, 1);
+}
+ 
+.saa-s-lifestyle-app-container2 {
+  gap: 80px;
+  width: 1200px;
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+ 
+.saa-s-lifestyle-app-column10 {
+  gap: 14px;
+  width: 560px;
+  display: flex;
+  padding: 40px 0;
+  flex-grow: 1;
+  align-items: center;
+  flex-shrink: 0;
+  flex-direction: column;
+  justify-content: center;
+}
+ 
+.saa-s-lifestyle-app-column11 {
+  gap: 14px;
+  display: flex;
+  align-self: stretch;
+  align-items: center;
+  flex-direction: column;
+}
+ 
+.saa-s-lifestyle-app-text-wrapper1 {
+  width: 262px;
+  display: flex;
+  padding: 10px 30px;
+  align-items: center;
+  flex-shrink: 0;
+  border-radius: 30px;
+  flex-direction: column;
+  background-size: cover;
+  justify-content: center;
+  background-image: url("/tq_lzjdrnuupe-hcn-200h.png");
+}
+ 
+.saa-s-lifestyle-app-text16 {
+  color: rgba(242, 244, 248, 1);
+  height: auto;
+  font-size: 75px;
+  font-style: normal;
+  text-align: left;
+  font-family: Montserrat;
+  font-weight: 400;
+  line-height: 100%;
+  font-stretch: normal;
+  text-decoration: none;
+}
+ 
+.saa-s-lifestyle-app-text-wrapper2 {
+  display: flex;
+  padding: 10px 30px;
+  align-self: stretch;
+  align-items: center;
+  border-color: rgba(242, 244, 248, 1);
+  border-style: solid;
+  border-width: 0.8946028351783752px;
+  border-radius: 30px;
+  flex-direction: column;
+  justify-content: center;
+  background-color: rgba(242, 244, 248, 1);
+}
+ 
+.saa-s-lifestyle-app-text17 {
+  color: rgba(57, 61, 193, 1);
+  height: auto;
+  font-size: 75px;
+  align-self: stretch;
+  font-style: normal;
+  text-align: center;
+  font-family: Montserrat;
+  font-weight: 400;
+  line-height: 100%;
+  font-stretch: normal;
+  text-decoration: none;
+}
+ 
+.saa-s-lifestyle-app-text-wrapper3 {
+  width: 291px;
+  display: flex;
+  padding: 10px 30px;
+  align-items: center;
+  flex-shrink: 0;
+  border-radius: 30px;
+  flex-direction: column;
+  background-size: cover;
+  justify-content: center;
+  background-image: url("/tq_23c2rwrsq--9xmi-200h.png");
+}
+ 
+.saa-s-lifestyle-app-text18 {
+  color: rgba(242, 244, 248, 1);
+  height: auto;
+  font-size: 75px;
+  font-style: normal;
+  text-align: left;
+  font-family: Montserrat;
+  font-weight: 400;
+  line-height: 100%;
+  font-stretch: normal;
+  text-decoration: none;
+}
+ 
+.saa-s-lifestyle-app-actions {
+  gap: 16px;
+  display: flex;
+  padding: 16px 0 0;
+  align-items: flex-start;
+}
+ 
+.saa-s-lifestyle-app-button2 {
+  display: flex;
+  padding: 16px 32px;
+  align-items: center;
+  border-color: rgba(242, 244, 248, 1);
+  border-style: solid;
+  border-width: 1.2381771802902222px;
+  border-radius: 30px;
+  justify-content: center;
+  background-color: rgba(242, 244, 248, 1);
+}
+ 
+.saa-s-lifestyle-app-text19 {
+  color: rgba(57, 61, 193, 1);
+  height: auto;
+  font-size: 19.810834884643555px;
+  font-style: normal;
+  text-align: left;
+  font-family: Montserrat;
+  font-weight: 500;
+  line-height: 150%;
+  font-stretch: normal;
+  text-decoration: none;
+}
+ 
+.saa-s-lifestyle-app-column12 {
+  gap: 10px;
+  display: flex;
+  flex-grow: 1;
+  align-items: flex-start;
+}
+ 
+.saa-s-lifestyle-app-image-wrapper {
+  width: 560px;
+  display: flex;
+  flex-grow: 1;
+  align-items: center;
+  flex-shrink: 0;
+  flex-direction: column;
+  justify-content: center;
+}
+ 
+.saa-s-lifestyle-app-image {
+  gap: 10px;
+  height: 512px;
+  display: flex;
+  align-self: stretch;
+  align-items: flex-start;
+  flex-shrink: 0;
+  border-radius: 30px;
+  flex-direction: column;
+  background-size: cover;
+  background-image: url("/tq_bwmiwsmf1w-4tsg-600h.png");
+}
+ 
+.saa-s-lifestyle-app-logo-section {
+  gap: 48px;
+  display: flex;
+  padding: 20px 20px 100px;
+  overflow: hidden;
+  align-self: stretch;
+  align-items: center;
+  flex-direction: column;
+  background-color: rgba(26, 26, 26, 1);
+}
+ 
+.saa-s-lifestyle-app-text20 {
+  color: rgba(242, 244, 248, 1);
+  height: auto;
+  font-size: 18px;
+  font-style: normal;
+  text-align: left;
+  font-family: Montserrat;
+  font-weight: 700;
+  line-height: 150%;
+  font-stretch: normal;
+  text-decoration: none;
+}
+ 
+.saa-s-lifestyle-app-content1 {
+  gap: 24px;
+  display: flex;
+  align-self: stretch;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+}
+ 
+.saa-s-lifestyle-app-logos {
+  gap: 48px;
+  display: flex;
+  align-self: stretch;
+  align-items: center;
+  flex-shrink: 0;
+  justify-content: center;
+}
+ 
+.saa-s-lifestyle-app-logo-wrapper1 {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+}
+ 
+.saa-s-lifestyle-app-logo2 {
+  display: flex;
+  overflow: hidden;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+}
+ 
+.saa-s-lifestyle-app-logodell {
+  width: 62px;
+  height: 20px;
+}
+ 
+.saa-s-lifestyle-app-logo-wrapper2 {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+}
+ 
+.saa-s-lifestyle-app-logo3 {
+  display: flex;
+  overflow: hidden;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+}
+ 
+.saa-s-lifestyle-app-logobain {
+  width: 148px;
+  height: 13px;
+}
+ 
+.saa-s-lifestyle-app-logo-wrapper3 {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+}
+ 
+.saa-s-lifestyle-app-logo4 {
+  display: flex;
+  overflow: hidden;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+}
+ 
+.saa-s-lifestyle-app-logozendesk {
+  width: 87px;
+  height: 17px;
+}
+ 
+.saa-s-lifestyle-app-logo-wrapper4 {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+}
+ 
+.saa-s-lifestyle-app-logo5 {
+  display: flex;
+  overflow: hidden;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+}
+ 
+.saa-s-lifestyle-app-logorakuten {
+  width: 67px;
+  height: 21px;
+}
+ 
+.saa-s-lifestyle-app-logo-wrapper5 {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+}
+ 
+.saa-s-lifestyle-app-logo6 {
+  display: flex;
+  overflow: hidden;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+}
+ 
+.saa-s-lifestyle-app-logopacificfunds {
+  width: 143px;
+  height: 13px;
+}
+ 
+.saa-s-lifestyle-app-logo-wrapper6 {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+}
+ 
+.saa-s-lifestyle-app-logo7 {
+  display: flex;
+  overflow: hidden;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+}
+ 
+.saa-s-lifestyle-app-logodiscord {
+  width: 117px;
+  height: 32px;
+  display: flex;
+  overflow: hidden;
+  position: relative;
+  align-items: flex-start;
+  flex-shrink: 0;
+}
+ 
+.saa-s-lifestyle-app-group {
+  top: 4.7058281898498535px;
+  left: -2.4366659090446774e-7px;
+  width: 116.94551086425781px;
+  height: 22.588233947753906px;
+  display: flex;
+  position: absolute;
+  align-items: flex-start;
+  flex-shrink: 1;
+}
+ 
+.saa-s-lifestyle-app-vector1 {
+  top: 0px;
+  left: 0px;
+  width: 29px;
+  height: 23px;
+  position: absolute;
+}
+ 
+.saa-s-lifestyle-app-vector2 {
+  top: 5.762474536895752px;
+  left: 39.278846740722656px;
+  width: 13px;
+  height: 11px;
+  position: absolute;
+}
+ 
+.saa-s-lifestyle-app-vector3 {
+  top: 7.222923755645752px;
+  left: 59.57274627685547px;
+  width: 10px;
+  height: 10px;
+  position: absolute;
+}
+ 
+.saa-s-lifestyle-app-vector4 {
+  top: 7.22514009475708px;
+  left: 70.53487396240234px;
+  width: 10px;
+  height: 10px;
+  position: absolute;
+}
+ 
+.saa-s-lifestyle-app-vector5 {
+  top: 7.220545291900635px;
+  left: 81.89451599121094px;
+  width: 12px;
+  height: 10px;
+  position: absolute;
+}
+ 
+.saa-s-lifestyle-app-vector6 {
+  top: 7.436193943023682px;
+  left: 95.63813781738281px;
+  width: 8px;
+  height: 10px;
+  position: absolute;
+}
+ 
+.saa-s-lifestyle-app-vector7 {
+  top: 5.434288501739502px;
+  left: 104.55072784423828px;
+  width: 12px;
+  height: 12px;
+  position: absolute;
+}
+ 
+.saa-s-lifestyle-app-vector8 {
+  top: 5.0708909034729px;
+  left: 53.88274383544922px;
+  width: 4px;
+  height: 4px;
+  position: absolute;
+}
+ 
+.saa-s-lifestyle-app-vector9 {
+  top: 9.911599159240723px;
+  left: 53.881038665771484px;
+  width: 4px;
+  height: 7px;
+  position: absolute;
+}
+ 
+.saa-s-lifestyle-app-logo-wrapper7 {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+}
+ 
+.saa-s-lifestyle-app-logo8 {
+  display: flex;
+  overflow: hidden;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+}
+ 
+.saa-s-lifestyle-app-logoncr {
+  width: 80px;
+  height: 24px;
+}
+ 
+.saa-s-lifestyle-app-sections1 {
+  display: flex;
+  align-self: center;
+  align-items: flex-start;
+  flex-direction: column;
+  background-color: rgba(242, 244, 248, 1);
+}
+ 
+.saa-s-lifestyle-app-section1 {
+  width: 1440px;
+  display: flex;
+  padding: 80px 20px 40px;
+  align-items: center;
+  flex-shrink: 0;
+  flex-direction: column;
+}
+ 
+.saa-s-lifestyle-app-container3 {
+  gap: 24px;
+  width: 1200px;
+  height: 563px;
+  display: flex;
+  box-shadow: 0px 100px 80px 0px rgba(0, 0, 0, 0.07000000029802322) ;
+  align-items: flex-start;
+  flex-shrink: 0;
+  border-radius: 30px;
+  flex-direction: column;
+}
+ 
+.saa-s-lifestyle-app-content-wrapper1 {
+  gap: 75px;
+  display: flex;
+  padding: 110px 100px;
+  align-self: stretch;
+  align-items: flex-end;
+  border-radius: 30px;
+  flex-direction: column;
+  background-size: cover;
+  background-image: url("/tq_2xliiddiij-lg5-600h.png");
+}
+ 
+.saa-s-lifestyle-app-content2 {
+  gap: 24px;
+  width: 380px;
+  display: flex;
+  align-items: flex-start;
+  flex-shrink: 0;
+  flex-direction: column;
+}
+ 
+.saa-s-lifestyle-app-text21 {
+  color: rgba(0, 0, 0, 1);
+  height: auto;
+  font-size: 14px;
+  align-self: stretch;
+  font-style: normal;
+  text-align: left;
+  font-family: Montserrat;
+  font-weight: 400;
+  line-height: 150%;
+  font-stretch: normal;
+  text-decoration: none;
+}
+ 
+.saa-s-lifestyle-app-text22 {
+  color: rgba(0, 0, 0, 1);
+  height: auto;
+  font-size: 48px;
+  align-self: stretch;
+  font-style: normal;
+  text-align: left;
+  font-family: Montserrat;
+  font-weight: 700;
+  line-height: 120.00000476837158%;
+  font-stretch: normal;
+  text-decoration: none;
+}
+ 
+.saa-s-lifestyle-app-text23 {
+  color: rgba(0, 0, 0, 1);
+  height: auto;
+  font-size: 18px;
+  align-self: stretch;
+  font-style: normal;
+  text-align: left;
+  font-family: Montserrat;
+  font-weight: 400;
+  line-height: 150%;
+  font-stretch: normal;
+  text-decoration: none;
+}
+ 
+.saa-s-lifestyle-app-section2 {
+  width: 1440px;
+  display: flex;
+  padding: 40px 20px 80px;
+  align-self: center;
+  align-items: center;
+  flex-shrink: 0;
+  flex-direction: column;
+}
+ 
+.saa-s-lifestyle-app-container4 {
+  width: 1200px;
+  display: flex;
+  align-items: flex-start;
+  flex-shrink: 0;
+  flex-direction: column;
+}
+ 
+.saa-s-lifestyle-app-frame2-columns1 {
+  gap: 24px;
+  display: flex;
+  align-self: stretch;
+  align-items: flex-start;
+  flex-shrink: 0;
+}
+ 
+.saa-s-lifestyle-app-column13 {
+  display: flex;
+  flex-grow: 1;
+  align-self: stretch;
+  align-items: flex-start;
+  flex-direction: column;
+}
+ 
+.saa-s-lifestyle-app-imagewrapper1 {
+  height: 560px;
+  display: flex;
+  box-shadow: 0px 100px 80px 0px rgba(0, 0, 0, 0.07000000029802322) ;
+  align-items: flex-start;
+  flex-shrink: 0;
+  border-radius: 30px;
+  flex-direction: column;
+}
+ 
+.saa-s-lifestyle-app-placeholder-image {
+  width: 560px;
+  height: 560px;
+  border-radius: 30px;
+}
+ 
+.saa-s-lifestyle-app-column14 {
+  display: flex;
+  flex-grow: 1;
+  align-self: stretch;
+  align-items: flex-end;
+  flex-direction: column;
+}
+ 
+.saa-s-lifestyle-app-content3 {
+  gap: 24px;
+  width: 560px;
+  display: flex;
+  padding: 100px;
+  flex-grow: 1;
+  box-shadow: 0px 100px 80px 0px rgba(0, 0, 0, 0.07000000029802322) ;
+  align-items: center;
+  flex-shrink: 0;
+  border-radius: 30px;
+  flex-direction: column;
+  background-size: cover;
+  justify-content: center;
+  background-image: url("/tq_voyafv8mdn-g16i-600w.png");
+}
+ 
+.saa-s-lifestyle-app-text24 {
+  color: rgba(0, 0, 0, 1);
+  height: auto;
+  font-size: 14px;
+  align-self: stretch;
+  font-style: normal;
+  text-align: left;
+  font-family: Montserrat;
+  font-weight: 400;
+  line-height: 150%;
+  font-stretch: normal;
+  text-decoration: none;
+}
+ 
+.saa-s-lifestyle-app-text25 {
+  color: rgba(0, 0, 0, 1);
+  height: auto;
+  font-size: 48px;
+  align-self: stretch;
+  font-style: normal;
+  text-align: left;
+  font-family: Montserrat;
+  font-weight: 700;
+  line-height: 120.00000476837158%;
+  font-stretch: normal;
+  text-decoration: none;
+}
+ 
+.saa-s-lifestyle-app-text26 {
+  color: rgba(0, 0, 0, 1);
+  height: auto;
+  font-size: 18px;
+  align-self: stretch;
+  font-style: normal;
+  text-align: left;
+  font-family: Montserrat;
+  font-weight: 400;
+  line-height: 150%;
+  font-stretch: normal;
+  text-decoration: none;
+}
+ 
+.saa-s-lifestyle-app-sections2 {
+  display: flex;
+  align-self: stretch;
+  align-items: flex-start;
+  flex-direction: column;
+  background-color: rgba(28, 28, 28, 1);
+}
+ 
+.saa-s-lifestyle-app-section3 {
+  width: 1440px;
+  display: flex;
+  padding: 80px 20px 40px;
+  align-self: center;
+  align-items: center;
+  flex-shrink: 0;
+  flex-direction: column;
+}
+ 
+.saa-s-lifestyle-app-container5 {
+  width: 1200px;
+  display: flex;
+  align-items: flex-start;
+  flex-shrink: 0;
+  flex-direction: column;
+}
+ 
+.saa-s-lifestyle-app-frame2-columns2 {
+  gap: 24px;
+  display: flex;
+  align-self: stretch;
+  align-items: flex-start;
+  flex-shrink: 0;
+}
+ 
+.saa-s-lifestyle-app-column15 {
+  display: flex;
+  flex-grow: 1;
+  align-self: stretch;
+  align-items: flex-start;
+  flex-direction: column;
+}
+ 
+.saa-s-lifestyle-app-content4 {
+  gap: 24px;
+  width: 560px;
+  display: flex;
+  padding: 100px;
+  flex-grow: 1;
+  align-items: center;
+  flex-shrink: 0;
+  border-radius: 30px;
+  flex-direction: column;
+  background-size: cover;
+  justify-content: center;
+  background-image: url("/tq_wejicop1dc-sm7b-600w.png");
+}
+ 
+.saa-s-lifestyle-app-text27 {
+  color: rgba(0, 0, 0, 1);
+  height: auto;
+  font-size: 14px;
+  align-self: stretch;
+  font-style: normal;
+  text-align: left;
+  font-family: Montserrat;
+  font-weight: 400;
+  line-height: 150%;
+  font-stretch: normal;
+  text-decoration: none;
+}
+ 
+.saa-s-lifestyle-app-text28 {
+  color: rgba(0, 0, 0, 1);
+  height: auto;
+  font-size: 48px;
+  align-self: stretch;
+  font-style: normal;
+  text-align: left;
+  font-family: Montserrat;
+  font-weight: 700;
+  line-height: 120.00000476837158%;
+  font-stretch: normal;
+  text-decoration: none;
+}
+ 
+.saa-s-lifestyle-app-text29 {
+  color: rgba(0, 0, 0, 1);
+  height: auto;
+  font-size: 18px;
+  align-self: stretch;
+  font-style: normal;
+  text-align: left;
+  font-family: Montserrat;
+  font-weight: 400;
+  line-height: 150%;
+  font-stretch: normal;
+  text-decoration: none;
+}
+ 
+.saa-s-lifestyle-app-column16 {
+  height: 560px;
+  display: flex;
+  align-self: stretch;
+  align-items: flex-end;
+  flex-shrink: 0;
+  flex-direction: column;
+}
+ 
+.saa-s-lifestyle-app-imagewrapper2 {
+  width: 560px;
+  height: 560px;
+  display: flex;
+  align-items: flex-start;
+  flex-shrink: 0;
+  border-radius: 30px;
+  flex-direction: column;
+}
+ 
+.saa-s-lifestyle-app-image45 {
+  width: auto;
+  height: auto;
+  flex-grow: 1;
+  align-self: stretch;
+  border-radius: 30px;
+}
+ 
+.saa-s-lifestyle-app-section4 {
+  width: 1440px;
+  display: flex;
+  padding: 40px 20px 80px;
+  align-self: center;
+  align-items: center;
+  flex-shrink: 0;
+  flex-direction: column;
+}
+ 
+.saa-s-lifestyle-app-container6 {
+  gap: 24px;
+  width: 1200px;
+  height: 563px;
+  display: flex;
+  box-shadow: 0px 100px 80px 0px rgba(0, 0, 0, 0.07000000029802322) ;
+  align-items: flex-start;
+  flex-shrink: 0;
+  border-radius: 30px;
+  flex-direction: column;
+}
+ 
+.saa-s-lifestyle-app-content-wrapper2 {
+  gap: 24px;
+  display: flex;
+  padding: 100px;
+  flex-grow: 1;
+  align-self: stretch;
+  align-items: flex-start;
+  border-radius: 30px;
+  flex-direction: column;
+  background-size: cover;
+  justify-content: center;
+  background-image: url("/tq_d1cw5axfxi-5a8o-600h.png");
+}
+ 
+.saa-s-lifestyle-app-content5 {
+  gap: 24px;
+  width: 450px;
+  display: flex;
+  align-items: flex-start;
+  flex-shrink: 0;
+  flex-direction: column;
+}
+ 
+.saa-s-lifestyle-app-text30 {
+  color: rgba(242, 244, 248, 1);
+  height: auto;
+  font-size: 48px;
+  align-self: stretch;
+  font-style: normal;
+  text-align: left;
+  font-family: Montserrat;
+  font-weight: 700;
+  line-height: 120.00000476837158%;
+  font-stretch: normal;
+  text-decoration: none;
+}
+ 
+.saa-s-lifestyle-app-text31 {
+  color: rgba(242, 244, 248, 1);
+  height: auto;
+  font-size: 18px;
+  align-self: stretch;
+  font-style: normal;
+  text-align: left;
+  font-family: Montserrat;
+  font-weight: 400;
+  line-height: 150%;
+  font-stretch: normal;
+  text-decoration: none;
+}
+ 
+.saa-s-lifestyle-app-text32 {
+  color: rgba(242, 244, 248, 1);
+  height: auto;
+  font-size: 16px;
+  font-style: normal;
+  text-align: left;
+  font-family: Montserrat;
+  font-weight: 500;
+  line-height: 150%;
+  font-stretch: normal;
+  text-decoration: underline;
+}
+ 
+.saa-s-lifestyle-app-footer {
+  gap: 80px;
+  display: flex;
+  padding: 80px 20px;
+  overflow: hidden;
+  align-self: stretch;
+  align-items: center;
+  flex-direction: column;
+  background-color: rgba(26, 26, 26, 1);
+}
+ 
+.saa-s-lifestyle-app-columns {
+  gap: 40px;
+  width: 1200px;
+  display: flex;
+  align-items: flex-start;
+  flex-shrink: 0;
+}
+ 
+.saa-s-lifestyle-app-small-columns {
+  gap: 32px;
+  display: flex;
+  flex-grow: 1;
+  align-items: flex-start;
+}
+ 
+.saa-s-lifestyle-app-column17 {
+  gap: 24px;
+  width: 141px;
+  display: flex;
+  flex-grow: 1;
+  align-items: flex-start;
+  flex-shrink: 0;
+  flex-direction: column;
+}
+ 
+.saa-s-lifestyle-app-logo-wrapper8 {
+  display: flex;
+  align-items: flex-start;
+}
+ 
+.saa-s-lifestyle-app-logo9 {
+  gap: 7px;
+  width: 139.90647888183594px;
+  height: 32.73084259033203px;
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+ 
+.saa-s-lifestyle-app-union2 {
+  width: 36px;
+  height: 33px;
+}
+ 
+.saa-s-lifestyle-app-text33 {
+  color: rgba(242, 244, 248, 1);
+  height: auto;
+  font-size: 32.192604064941406px;
+  font-style: normal;
+  text-align: left;
+  font-family: Montserrat;
+  font-weight: 500;
+  line-height: 100%;
+  font-stretch: normal;
+  text-decoration: none;
+}
+ 
+.saa-s-lifestyle-app-column18 {
+  gap: 24px;
+  width: 141px;
+  display: flex;
+  flex-grow: 1;
+  align-items: flex-start;
+  flex-shrink: 0;
+  flex-direction: column;
+}
+ 
+.saa-s-lifestyle-app-content6 {
+  gap: 16px;
+  display: flex;
+  align-self: stretch;
+  align-items: flex-start;
+  flex-direction: column;
+}
+ 
+.saa-s-lifestyle-app-text34 {
+  color: rgba(242, 244, 248, 1);
+  height: auto;
+  font-size: 16px;
+  align-self: stretch;
+  font-style: SemiBold;
+  text-align: left;
+  font-family: Montserrat;
+  font-weight: 600;
+  line-height: 150%;
+  font-stretch: normal;
+  text-decoration: none;
+}
+ 
+.saa-s-lifestyle-app-footer-links1 {
+  display: flex;
+  align-self: stretch;
+  align-items: flex-start;
+  flex-direction: column;
+}
+ 
+.saa-s-lifestyle-app-link10 {
+  display: flex;
+  padding: 8px 0;
+  align-self: stretch;
+  align-items: flex-start;
+  flex-shrink: 0;
+}
+ 
+.saa-s-lifestyle-app-text35 {
+  color: rgba(242, 244, 248, 1);
+  height: auto;
+  flex-grow: 1;
+  font-size: 14px;
+  font-style: normal;
+  text-align: left;
+  font-family: Montserrat;
+  font-weight: 400;
+  line-height: 150%;
+  font-stretch: normal;
+  text-decoration: none;
+}
+ 
+.saa-s-lifestyle-app-link11 {
+  display: flex;
+  padding: 8px 0;
+  align-self: stretch;
+  align-items: flex-start;
+  flex-shrink: 0;
+}
+ 
+.saa-s-lifestyle-app-text36 {
+  color: rgba(242, 244, 248, 1);
+  height: auto;
+  flex-grow: 1;
+  font-size: 14px;
+  font-style: normal;
+  text-align: left;
+  font-family: Montserrat;
+  font-weight: 400;
+  line-height: 150%;
+  font-stretch: normal;
+  text-decoration: none;
+}
+ 
+.saa-s-lifestyle-app-link12 {
+  display: flex;
+  padding: 8px 0;
+  align-self: stretch;
+  align-items: flex-start;
+  flex-shrink: 0;
+}
+ 
+.saa-s-lifestyle-app-text37 {
+  color: rgba(242, 244, 248, 1);
+  height: auto;
+  flex-grow: 1;
+  font-size: 14px;
+  font-style: normal;
+  text-align: left;
+  font-family: Montserrat;
+  font-weight: 400;
+  line-height: 150%;
+  font-stretch: normal;
+  text-decoration: none;
+}
+ 
+.saa-s-lifestyle-app-link13 {
+  display: flex;
+  padding: 8px 0;
+  align-self: stretch;
+  align-items: flex-start;
+  flex-shrink: 0;
+}
+ 
+.saa-s-lifestyle-app-text38 {
+  color: rgba(242, 244, 248, 1);
+  height: auto;
+  flex-grow: 1;
+  font-size: 14px;
+  font-style: normal;
+  text-align: left;
+  font-family: Montserrat;
+  font-weight: 400;
+  line-height: 150%;
+  font-stretch: normal;
+  text-decoration: none;
+}
+ 
+.saa-s-lifestyle-app-link14 {
+  display: flex;
+  padding: 8px 0;
+  align-items: flex-start;
+}
+ 
+.saa-s-lifestyle-app-text39 {
+  color: rgba(242, 244, 248, 1);
+  height: auto;
+  font-size: 14px;
+  font-style: normal;
+  text-align: left;
+  font-family: Montserrat;
+  font-weight: 400;
+  line-height: 150%;
+  font-stretch: normal;
+  text-decoration: none;
+}
+ 
+.saa-s-lifestyle-app-column19 {
+  gap: 24px;
+  width: 141px;
+  display: flex;
+  flex-grow: 1;
+  align-items: flex-start;
+  flex-shrink: 0;
+  flex-direction: column;
+}
+ 
+.saa-s-lifestyle-app-content7 {
+  gap: 16px;
+  display: flex;
+  align-self: stretch;
+  align-items: flex-start;
+  flex-direction: column;
+}
+ 
+.saa-s-lifestyle-app-text40 {
+  color: rgba(242, 244, 248, 1);
+  height: auto;
+  font-size: 16px;
+  align-self: stretch;
+  font-style: SemiBold;
+  text-align: left;
+  font-family: Montserrat;
+  font-weight: 600;
+  line-height: 150%;
+  font-stretch: normal;
+  text-decoration: none;
+}
+ 
+.saa-s-lifestyle-app-footer-links2 {
+  display: flex;
+  align-self: stretch;
+  align-items: flex-start;
+  flex-direction: column;
+}
+ 
+.saa-s-lifestyle-app-link15 {
+  display: flex;
+  padding: 8px 0;
+  align-items: flex-start;
+}
+ 
+.saa-s-lifestyle-app-text41 {
+  color: rgba(242, 244, 248, 1);
+  height: auto;
+  font-size: 14px;
+  font-style: normal;
+  text-align: left;
+  font-family: Montserrat;
+  font-weight: 400;
+  line-height: 150%;
+  font-stretch: normal;
+  text-decoration: none;
+}
+ 
+.saa-s-lifestyle-app-link16 {
+  display: flex;
+  padding: 8px 0;
+  align-items: flex-start;
+}
+ 
+.saa-s-lifestyle-app-text42 {
+  color: rgba(242, 244, 248, 1);
+  height: auto;
+  font-size: 14px;
+  font-style: normal;
+  text-align: left;
+  font-family: Montserrat;
+  font-weight: 400;
+  line-height: 150%;
+  font-stretch: normal;
+  text-decoration: none;
+}
+ 
+.saa-s-lifestyle-app-link17 {
+  display: flex;
+  padding: 8px 0;
+  align-items: flex-start;
+}
+ 
+.saa-s-lifestyle-app-text43 {
+  color: rgba(242, 244, 248, 1);
+  height: auto;
+  font-size: 14px;
+  font-style: normal;
+  text-align: left;
+  font-family: Montserrat;
+  font-weight: 400;
+  line-height: 150%;
+  font-stretch: normal;
+  text-decoration: none;
+}
+ 
+.saa-s-lifestyle-app-link18 {
+  display: flex;
+  padding: 8px 0;
+  align-items: flex-start;
+}
+ 
+.saa-s-lifestyle-app-text44 {
+  color: rgba(242, 244, 248, 1);
+  height: auto;
+  font-size: 14px;
+  font-style: normal;
+  text-align: left;
+  font-family: Montserrat;
+  font-weight: 400;
+  line-height: 150%;
+  font-stretch: normal;
+  text-decoration: none;
+}
+ 
+.saa-s-lifestyle-app-link19 {
+  display: flex;
+  padding: 8px 0;
+  align-items: flex-start;
+}
+ 
+.saa-s-lifestyle-app-text45 {
+  color: rgba(242, 244, 248, 1);
+  height: auto;
+  font-size: 14px;
+  font-style: normal;
+  text-align: left;
+  font-family: Montserrat;
+  font-weight: 400;
+  line-height: 150%;
+  font-stretch: normal;
+  text-decoration: none;
+}
+ 
+.saa-s-lifestyle-app-column20 {
+  gap: 24px;
+  width: 141px;
+  display: flex;
+  flex-grow: 1;
+  align-items: flex-start;
+  flex-shrink: 0;
+  flex-direction: column;
+}
+ 
+.saa-s-lifestyle-app-content8 {
+  gap: 16px;
+  display: flex;
+  align-self: stretch;
+  align-items: flex-start;
+  flex-direction: column;
+}
+ 
+.saa-s-lifestyle-app-text46 {
+  color: rgba(242, 244, 248, 1);
+  height: auto;
+  font-size: 16px;
+  align-self: stretch;
+  font-style: SemiBold;
+  text-align: left;
+  font-family: Montserrat;
+  font-weight: 600;
+  line-height: 150%;
+  font-stretch: normal;
+  text-decoration: none;
+}
+ 
+.saa-s-lifestyle-app-footer-links3 {
+  display: flex;
+  align-self: stretch;
+  align-items: flex-start;
+  flex-direction: column;
+}
+ 
+.saa-s-lifestyle-app-link20 {
+  display: flex;
+  padding: 8px 0;
+  align-items: flex-start;
+}
+ 
+.saa-s-lifestyle-app-text47 {
+  color: rgba(242, 244, 248, 1);
+  width: 91px;
+  height: auto;
+  font-size: 14px;
+  font-style: normal;
+  text-align: left;
+  font-family: Montserrat;
+  font-weight: 400;
+  line-height: 150%;
+  font-stretch: normal;
+  text-decoration: none;
+}
+ 
+.saa-s-lifestyle-app-link21 {
+  display: flex;
+  padding: 8px 0;
+  align-items: flex-start;
+}
+ 
+.saa-s-lifestyle-app-text48 {
+  color: rgba(242, 244, 248, 1);
+  width: 91px;
+  height: auto;
+  font-size: 14px;
+  font-style: normal;
+  text-align: left;
+  font-family: Montserrat;
+  font-weight: 400;
+  line-height: 150%;
+  font-stretch: normal;
+  text-decoration: none;
+}
+ 
+.saa-s-lifestyle-app-link22 {
+  display: flex;
+  padding: 8px 0;
+  align-items: flex-start;
+}
+ 
+.saa-s-lifestyle-app-text49 {
+  color: rgba(242, 244, 248, 1);
+  height: auto;
+  font-size: 14px;
+  font-style: normal;
+  text-align: left;
+  font-family: Montserrat;
+  font-weight: 400;
+  line-height: 150%;
+  font-stretch: normal;
+  text-decoration: none;
+}
+ 
+.saa-s-lifestyle-app-link23 {
+  display: flex;
+  padding: 8px 0;
+  align-items: flex-start;
+}
+ 
+.saa-s-lifestyle-app-text50 {
+  color: rgba(242, 244, 248, 1);
+  height: auto;
+  font-size: 14px;
+  font-style: normal;
+  text-align: left;
+  font-family: Montserrat;
+  font-weight: 400;
+  line-height: 150%;
+  font-stretch: normal;
+  text-decoration: none;
+}
+ 
+.saa-s-lifestyle-app-link24 {
+  display: flex;
+  padding: 8px 0;
+  align-items: flex-start;
+}
+ 
+.saa-s-lifestyle-app-text51 {
+  color: rgba(242, 244, 248, 1);
+  height: auto;
+  font-size: 14px;
+  font-style: normal;
+  text-align: left;
+  font-family: Montserrat;
+  font-weight: 400;
+  line-height: 150%;
+  font-stretch: normal;
+  text-decoration: none;
+}
+ 
+.saa-s-lifestyle-app-column21 {
+  gap: 80px;
+  width: 500px;
+  display: flex;
+  align-items: flex-start;
+  flex-shrink: 0;
+  flex-direction: column;
+}
+ 
+.saa-s-lifestyle-app-form1 {
+  gap: 24px;
+  display: flex;
+  align-self: stretch;
+  align-items: flex-start;
+  flex-direction: column;
+}
+ 
+.saa-s-lifestyle-app-cta-title {
+  gap: 19px;
+  width: 400px;
+  display: flex;
+  align-items: flex-start;
+  flex-shrink: 0;
+  flex-direction: column;
+}
+ 
+.saa-s-lifestyle-app-text52 {
+  color: rgba(242, 244, 248, 1);
+  height: auto;
+  font-size: 16px;
+  align-self: stretch;
+  font-style: SemiBold;
+  text-align: left;
+  font-family: Montserrat;
+  font-weight: 600;
+  line-height: 150%;
+  font-stretch: normal;
+  text-decoration: none;
+}
+ 
+.saa-s-lifestyle-app-text53 {
+  color: rgba(242, 244, 248, 1);
+  height: auto;
+  font-size: 16px;
+  align-self: stretch;
+  font-style: normal;
+  text-align: left;
+  font-family: Montserrat;
+  font-weight: 400;
+  line-height: 150%;
+  font-stretch: normal;
+  text-decoration: none;
+}
+ 
+.saa-s-lifestyle-app-form-wrapper {
+  gap: 10px;
+  display: flex;
+  align-self: stretch;
+  align-items: flex-start;
+  flex-direction: column;
+}
+ 
+.saa-s-lifestyle-app-form2 {
+  gap: 16px;
+  display: flex;
+  align-self: stretch;
+  align-items: flex-start;
+  flex-shrink: 0;
+}
+ 
+.saa-s-lifestyle-app-form-text-input {
+  gap: 10px;
+  color: rgba(242, 244, 248, 0.8999999761581421);
+  display: flex;
+  padding: 10px 16px;
+  flex-grow: 1;
+  font-size: 12px;
+  align-self: stretch;
+  box-shadow: 0px 20px 100px 0px rgba(0, 0, 0, 0.25) ;
+  text-align: left;
+  align-items: flex-start;
+  font-family: Montserrat;
+  font-weight: 400;
+  border-color: rgba(242, 244, 248, 1);
+  border-style: solid;
+  border-width: 0 0 1px;
+  background-color: rgba(26, 26, 26, 1);
+}
+ 
+.saa-s-lifestyle-app-form-button {
+  display: flex;
+  padding: 12px 32px;
+  align-items: center;
+  border-color: rgba(242, 244, 248, 1);
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 39.62166976928711px;
+  justify-content: center;
+  background-color: rgba(27, 27, 27, 1);
+}
+ 
+.saa-s-lifestyle-app-text54 {
+  color: rgba(242, 244, 248, 1);
+  height: auto;
+  font-size: 16px;
+  font-style: normal;
+  text-align: left;
+  font-family: Montserrat;
+  font-weight: 400;
+  line-height: 150%;
+  font-stretch: normal;
+  text-decoration: none;
+}
+ 
+.saa-s-lifestyle-app-text55 {
+  color: rgba(242, 244, 248, 1);
+  height: auto;
+  font-size: 12px;
+  align-self: stretch;
+  font-style: normal;
+  text-align: left;
+  font-family: Montserrat;
+  font-weight: 400;
+  line-height: 150%;
+  font-stretch: normal;
+  text-decoration: none;
+}
+ 
+.saa-s-lifestyle-app-copyright {
+  gap: 32px;
+  width: 1200px;
+  display: flex;
+  padding: 32px 0 0;
+  align-items: center;
+  flex-shrink: 0;
+  border-color: rgba(242, 244, 248, 1);
+  border-style: solid;
+  border-width: 1px 0 0;
+  justify-content: space-between;
+}
+ 
+.saa-s-lifestyle-app-text56 {
+  color: rgba(242, 244, 248, 1);
+  height: auto;
+  font-size: 14px;
+  font-style: normal;
+  text-align: left;
+  font-family: Montserrat;
+  font-weight: 400;
+  line-height: 150%;
+  font-stretch: normal;
+  text-decoration: none;
+}
+ 
+.saa-s-lifestyle-app-social-links {
+  gap: 12px;
+  display: flex;
+  align-items: flex-start;
+}
+ 
+.saa-s-lifestyle-app-icon-facebook {
+  width: 24px;
+  height: 24px;
+}
+ 
+.saa-s-lifestyle-app-icon-instagram {
+  width: 24px;
+  height: 24px;
+}
+ 
+.saa-s-lifestyle-app-icon-twitter {
+  width: 24px;
+  height: 23px;
+}
+ 
+.saa-s-lifestyle-app-icon-linked-in {
+  width: 24px;
+  height: 24px;
+}
+ 
+.saa-s-lifestyle-app-link25 {
+  display: contents;
+}
+ 
+.saa-s-lifestyle-app-container7 {
+  right: 50px;
+  border: 1px solid #ffffff5c;
+  bottom: 30px;
+  display: flex;
+  z-index: 22;
+  position: fixed;
+  box-shadow: 5px 5px 10px 0px rgba(31, 31, 31, 0.4);
+  min-height: auto;
+  align-items: center;
+  padding-top: 8px;
+  padding-left: 12px;
+  border-radius: 8px;
+  padding-right: 12px;
+  padding-bottom: 8px;
+  backdrop-filter: blur(6px);
+  background-color: rgba(41, 41, 41, 0.41);
+}
+ 
+.saa-s-lifestyle-app-icon1 {
+  width: 24px;
+  margin-right: 4px;
+}
+ 
+.saa-s-lifestyle-app-text57 {
+  color: white;
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 24px;
+}
+
+
+/* Add these styles to your saa-s-lifestyle-app.css file */
+
+/* ========================================
+   NAVIGATION HOVER EFFECTS
+======================================== */
+
+/* Navbar links hover effect */
+.saa-s-lifestyle-app-navbar-link1,
+.saa-s-lifestyle-app-navbar-link2,
+.saa-s-lifestyle-app-navbar-link3,
+.saa-s-lifestyle-app-navbar-link4 {
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  padding: 8px 16px;
+  border-radius: 6px;
+}
+
+.saa-s-lifestyle-app-navbar-link1:hover,
+.saa-s-lifestyle-app-navbar-link2:hover,
+.saa-s-lifestyle-app-navbar-link3:hover,
+.saa-s-lifestyle-app-navbar-link4:hover {
+  background-color: rgba(0, 0, 0, 0.05);
+  transform: translateY(-2px);
+}
+
+.saa-s-lifestyle-app-navbar-link1 span,
+.saa-s-lifestyle-app-navbar-link2 span,
+.saa-s-lifestyle-app-navbar-link3 span,
+.saa-s-lifestyle-app-navbar-link4 span {
+  transition: color 0.3s ease;
+}
+
+.saa-s-lifestyle-app-navbar-link1:hover span,
+.saa-s-lifestyle-app-navbar-link2:hover span,
+.saa-s-lifestyle-app-navbar-link3:hover span,
+.saa-s-lifestyle-app-navbar-link4:hover span {
+  color: #6366f1;
+}
+
+/* Underline effect on hover */
+.saa-s-lifestyle-app-navbar-link1::after,
+.saa-s-lifestyle-app-navbar-link2::after,
+.saa-s-lifestyle-app-navbar-link3::after,
+.saa-s-lifestyle-app-navbar-link4::after {
+  content: '';
+  position: absolute;
+  bottom: 4px;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background-color: #6366f1;
+  transition: all 0.3s ease;
+  transform: translateX(-50%);
+}
+
+.saa-s-lifestyle-app-navbar-link1:hover::after,
+.saa-s-lifestyle-app-navbar-link2:hover::after,
+.saa-s-lifestyle-app-navbar-link3:hover::after,
+.saa-s-lifestyle-app-navbar-link4:hover::after {
+  width: 80%;
+}
+
+/* Button hover effects */
+.saa-s-lifestyle-app-button1,
+.saa-s-lifestyle-app-button2 {
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.saa-s-lifestyle-app-button1:hover,
+.saa-s-lifestyle-app-button2:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 16px rgba(99, 102, 241, 0.3);
+  background-color: #4f46e5;
+}
+
+.saa-s-lifestyle-app-button1:active,
+.saa-s-lifestyle-app-button2:active {
+  transform: translateY(0);
+}
+
+/* Logo hover effect */
+.saa-s-lifestyle-app-logo1 {
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.saa-s-lifestyle-app-logo1:hover {
+  transform: scale(1.05);
+}
+
+/* ========================================
+   MOBILE RESPONSIVE STYLES
+======================================== */
+
+/* Tablets and smaller (below 1024px) */
+@media (max-width: 1024px) {
+  .saa-s-lifestyle-app-navbar-menu {
+    gap: 16px;
+  }
+  
+  .saa-s-lifestyle-app-text16,
+  .saa-s-lifestyle-app-text17,
+  .saa-s-lifestyle-app-text18 {
+    font-size: 48px !important;
+  }
+  
+  .saa-s-lifestyle-app-logos {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  .saa-s-lifestyle-app-frame2-columns1,
+  .saa-s-lifestyle-app-frame2-columns2 {
+    flex-direction: column;
+  }
+  
+  .saa-s-lifestyle-app-column13,
+  .saa-s-lifestyle-app-column14,
+  .saa-s-lifestyle-app-column15,
+  .saa-s-lifestyle-app-column16 {
+    width: 100% !important;
+  }
+}
+
+/* Mobile devices (below 768px) */
+@media (max-width: 768px) {
+  /* Hide desktop navbar menu */
+  .saa-s-lifestyle-app-navbar-menu {
+    display: none;
+  }
+  
+  /* Add mobile menu button (you'll need to add this to your JSX) */
+  .mobile-menu-button {
+    display: block;
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    padding: 8px;
+  }
+  
+  /* Mobile menu when open */
+  .saa-s-lifestyle-app-navbar-menu.mobile-open {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: white;
+    padding: 20px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+  }
+  
+  /* Container adjustments */
+  .saa-s-lifestyle-app-container2,
+  .saa-s-lifestyle-app-container3,
+  .saa-s-lifestyle-app-container4,
+  .saa-s-lifestyle-app-container5,
+  .saa-s-lifestyle-app-container6 {
+    padding: 20px !important;
+  }
+  
+  /* Hero text sizing */
+  .saa-s-lifestyle-app-text16,
+  .saa-s-lifestyle-app-text17,
+  .saa-s-lifestyle-app-text18 {
+    font-size: 36px !important;
+    text-align: center;
+  }
+  
+  /* Two column layouts to single column */
+  .saa-s-lifestyle-app-column10,
+  .saa-s-lifestyle-app-column12 {
+    width: 100% !important;
+  }
+  
+  .saa-s-lifestyle-app-column11 {
+    align-items: center;
+    text-align: center;
+  }
+  
+  /* Logo grid adjustments */
+  .saa-s-lifestyle-app-logos {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 20px;
+  }
+  
+  /* Footer columns stack */
+  .saa-s-lifestyle-app-small-columns {
+    flex-direction: column;
+    gap: 30px;
+  }
+  
+  .saa-s-lifestyle-app-column17,
+  .saa-s-lifestyle-app-column18,
+  .saa-s-lifestyle-app-column19,
+  .saa-s-lifestyle-app-column20,
+  .saa-s-lifestyle-app-column21 {
+    width: 100% !important;
+    text-align: center;
+  }
+  
+  /* Footer links center alignment */
+  .saa-s-lifestyle-app-footer-links1,
+  .saa-s-lifestyle-app-footer-links2,
+  .saa-s-lifestyle-app-footer-links3 {
+    align-items: center;
+  }
+  
+  /* Copyright section */
+  .saa-s-lifestyle-app-copyright {
+    flex-direction: column;
+    gap: 20px;
+    text-align: center;
+  }
+  
+  /* Images responsive */
+  .saa-s-lifestyle-app-placeholder-image,
+  .saa-s-lifestyle-app-image45 {
+    width: 100% !important;
+    height: auto !important;
+  }
+}
+
+/* Small mobile devices (below 480px) */
+@media (max-width: 480px) {
+  /* Even smaller hero text */
+  .saa-s-lifestyle-app-text16,
+  .saa-s-lifestyle-app-text17,
+  .saa-s-lifestyle-app-text18 {
+    font-size: 28px !important;
+  }
+  
+  /* Single column logo grid */
+  .saa-s-lifestyle-app-logos {
+    grid-template-columns: 1fr !important;
+  }
+  
+  /* Navbar padding */
+  .saa-s-lifestyle-app-navbar-container {
+    padding: 12px 16px !important;
+  }
+  
+  /* Button full width on very small screens */
+  .saa-s-lifestyle-app-button1,
+  .saa-s-lifestyle-app-button2 {
+    width: 100%;
+    max-width: 250px;
+  }
+  
+  /* Form input stacking */
+  .saa-s-lifestyle-app-form2 {
+    flex-direction: column;
+    gap: 12px;
+  }
+  
+  .saa-s-lifestyle-app-form-text-input,
+  .saa-s-lifestyle-app-form-button {
+    width: 100% !important;
+  }
+}
+
+/* ========================================
+   SMOOTH SCROLLING & GENERAL IMPROVEMENTS
+======================================== */
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* Add smooth transitions to all interactive elements */
+a, button, input {
+  transition: all 0.3s ease;
+}
+
+/* Footer links hover */
+.saa-s-lifestyle-app-link10,
+.saa-s-lifestyle-app-link11,
+.saa-s-lifestyle-app-link12,
+.saa-s-lifestyle-app-link13,
+.saa-s-lifestyle-app-link14,
+.saa-s-lifestyle-app-link15,
+.saa-s-lifestyle-app-link16,
+.saa-s-lifestyle-app-link17,
+.saa-s-lifestyle-app-link18,
+.saa-s-lifestyle-app-link19,
+.saa-s-lifestyle-app-link20,
+.saa-s-lifestyle-app-link21,
+.saa-s-lifestyle-app-link22,
+.saa-s-lifestyle-app-link23,
+.saa-s-lifestyle-app-link24 {
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.saa-s-lifestyle-app-link10:hover span,
+.saa-s-lifestyle-app-link11:hover span,
+.saa-s-lifestyle-app-link12:hover span,
+.saa-s-lifestyle-app-link13:hover span,
+.saa-s-lifestyle-app-link14:hover span,
+.saa-s-lifestyle-app-link15:hover span,
+.saa-s-lifestyle-app-link16:hover span,
+.saa-s-lifestyle-app-link17:hover span,
+.saa-s-lifestyle-app-link18:hover span,
+.saa-s-lifestyle-app-link19:hover span,
+.saa-s-lifestyle-app-link20:hover span,
+.saa-s-lifestyle-app-link21:hover span,
+.saa-s-lifestyle-app-link22:hover span,
+.saa-s-lifestyle-app-link23:hover span,
+.saa-s-lifestyle-app-link24:hover span {
+  color: #6366f1;
+  text-decoration: underline;
+}
+
+/* Social icons hover */
+.saa-s-lifestyle-app-icon-facebook,
+.saa-s-lifestyle-app-icon-instagram,
+.saa-s-lifestyle-app-icon-twitter,
+.saa-s-lifestyle-app-icon-linked-in {
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.saa-s-lifestyle-app-icon-facebook:hover,
+.saa-s-lifestyle-app-icon-instagram:hover,
+.saa-s-lifestyle-app-icon-twitter:hover,
+.saa-s-lifestyle-app-icon-linked-in:hover {
+  transform: translateY(-3px);
+  opacity: 0.7;
+}
+
+/* Form button hover */
+.saa-s-lifestyle-app-form-button {
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.saa-s-lifestyle-app-form-button:hover {
+  background-color: #4f46e5;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(99, 102, 241, 0.3);
+}
+
+/* Input focus states */
+.saa-s-lifestyle-app-form-text-input:focus {
+  outline: 2px solid #6366f1;
+  outline-offset: 2px;
+}
+
+
