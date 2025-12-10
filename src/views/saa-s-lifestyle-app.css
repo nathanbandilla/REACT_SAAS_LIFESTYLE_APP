@@ -559,7 +559,12 @@
   border-radius: 30px;
   flex-direction: column;
   background-size: cover;
-  background-image: url("/tq_bwmiwsmf1w-4tsg-600h.png");
+  background-image: url("/workout1.jpg");
+  transition: transform 0.3s ease;
+}
+
+.saa-s-lifestyle-app-image:hover {
+  transform: scale(1.05);
 }
  
 .saa-s-lifestyle-app-logo-section {
@@ -2026,8 +2031,9 @@
 .saa-s-lifestyle-app-button1:hover,
 .saa-s-lifestyle-app-button2:hover {
   transform: translateY(-2px);
-  box-shadow: 0 8px 16px rgba(99, 102, 241, 0.3);
-  background-color: #4f46e5;
+  box-shadow: 0 8px 16px rgba(255, 255, 255, 0.3);
+  background-color: #5e5ba7; 
+
 }
 
 .saa-s-lifestyle-app-button1:active,
